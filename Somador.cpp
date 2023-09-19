@@ -1,7 +1,4 @@
 #include "Somador.h"
-
-
-
 Somador::Somador()
 {
 }

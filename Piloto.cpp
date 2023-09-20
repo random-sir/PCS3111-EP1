@@ -14,6 +14,6 @@ Piloto::~Piloto()
 
 Sinal *Piloto::processar(Sinal *sinalIN)
 {
-    Sinal* sinalOUT = new Sinal((integradorPiloto->processar(amplificadorPiloto->processar(sinalIN)))->getSequencia(),sinalIN->getComprimento());
+    Sinal* sinalOUT = new Sinal((integradorPiloto->processar(amplificadorPiloto->processar(sinalIN)))->getSequencia(),sinalIN->getComprimento()); //BUG! Memory leak ainda não consertado!
     return sinalOUT;
 }

@@ -1,5 +1,13 @@
 #include "ModuloRealimentado.h"
 
+Sinal* criarSinalAPartirDeElemento(Sinal* sinalIN, int i){  //cria um sinal de comprimento unitário com o elemento [i] em sinalIN.getSequencia
+
+    double sequencia[1];
+    sequencia[0] = sinalIN->getSequencia()[i];
+    Sinal* sinalOUT = new Sinal(sequencia,1);
+    return sinalOUT;
+}
+
 ModuloRealimentado::ModuloRealimentado(double ganho)
 {
     somadorModuloRealimentado = new Somador;
@@ -22,15 +30,12 @@ Sinal *ModuloRealimentado::processar(Sinal *sinalIN)
     Sinal* saidaInvertida = nullptr;
     double* sequenciaSaidaInvertida = new double[sinalIN->getComprimento()];
     sequenciaSaidaInvertida[0] = 0;
-    double* sequenciaDiferenca = new double[1];
-    sequenciaDiferenca[0] = sinalIN->getSequencia()[0];
-    diferenca = new Sinal(sequenciaDiferenca,1);
+    diferenca = criarSinalAPartirDeElemento(sinalIN,0);
     saida = pilotoModuloRealimentado->processar(diferenca);
-    delete[] sequenciaDiferenca;
     delete diferenca;
     
     for (int i = 1;i<sinalIN->getComprimento();i++){
-        //inversorModuloRealimentado->processar(saida->getSequencia()[i-1]);
+        
     }
     return nullptr;
 }

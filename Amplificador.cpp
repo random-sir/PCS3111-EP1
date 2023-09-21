@@ -6,7 +6,7 @@ Amplificador::Amplificador(double ganho) : ganho(ganho){
 Amplificador::~Amplificador(){
 }
 
-Sinal *Amplificador::processar(Sinal *sinalIN){
+Sinal* Amplificador::processar(Sinal *sinalIN){
     int comprimentoOUT = sinalIN->getComprimento();
     double *sequenciaOUT = new double[comprimentoOUT];
     

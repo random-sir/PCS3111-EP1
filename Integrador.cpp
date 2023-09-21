@@ -6,7 +6,7 @@ Integrador::Integrador(){
 Integrador::~Integrador(){
 }
 
-Sinal *Integrador::processar(Sinal *sinalIN){
+Sinal* Integrador::processar(Sinal *sinalIN){
     int comprimentoOUT = sinalIN->getComprimento();
     double *sequenciaOUT = new double[comprimentoOUT];
     

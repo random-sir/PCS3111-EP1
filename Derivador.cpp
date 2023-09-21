@@ -7,7 +7,6 @@ Derivador::~Derivador(){
 }
 
 Sinal *Derivador::processar(Sinal *sinalIN){
-    
     int comprimentoOUT = sinalIN->getComprimento();
     double *sequenciaOUT = new double[comprimentoOUT];
     

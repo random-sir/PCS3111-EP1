@@ -11,6 +11,5 @@ public:
     Sinal* processar(Sinal* sinalIN);
     void setGanho(double ganho);
     double getGanho();
-
 };
 #endif

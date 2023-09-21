@@ -6,7 +6,7 @@ Somador::Somador(){
 Somador::~Somador(){
 }
 
-Sinal *Somador::processar(Sinal *sinalIN1, Sinal *sinalIN2){
+Sinal* Somador::processar(Sinal *sinalIN1, Sinal *sinalIN2){
     int comprimentoOUT;
     if (sinalIN1->getComprimento() <= sinalIN2->getComprimento()) 
         comprimentoOUT = sinalIN1->getComprimento();

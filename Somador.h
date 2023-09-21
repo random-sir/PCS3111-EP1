@@ -1,9 +1,8 @@
 #ifndef SOMADOR_H
 #define SOMADOR_H
 #include "Sinal.h"
-class Somador
-{
-private:
+
+class Somador{
 public:
     Somador();
     virtual ~Somador();

@@ -24,17 +24,25 @@ ModuloRealimentado::~ModuloRealimentado()
 
 Sinal *ModuloRealimentado::processar(Sinal *sinalIN)
 {
+    //inicializacao
     const double velocidadeInicial = 0;
     Sinal* diferenca = nullptr;
     Sinal* saida = nullptr;
     Sinal* saidaInvertida = nullptr;
+
+    //primeira iteracao
     double* sequenciaSaidaInvertida = new double[sinalIN->getComprimento()];
     sequenciaSaidaInvertida[0] = 0;
     diferenca = criarSinalAPartirDeElemento(sinalIN,0);
     saida = pilotoModuloRealimentado->processar(diferenca);
     delete diferenca;
     
-    for (int i = 1;i<sinalIN->getComprimento();i++){
+    for (int i = 1; i < sinalIN->getComprimento(); i++){
+        sequenciaSaidaInvertida = inversorModuloRealimentado->processar(saida[i-1]);
+        saidaInvertida = new Sinal(sequenciaSaidaInvertida, i+1); 
+        diferenca = somadorModuloRealimentado->processar(sinalIN, saidaInvertida);
+        delete saida;
+        saida = pilotoModuloRealimentado->processar(diferenca);
         
     }
     return nullptr;

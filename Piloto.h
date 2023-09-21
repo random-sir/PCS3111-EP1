@@ -4,8 +4,7 @@
 #include "Amplificador.h"
 #include "Integrador.h"
 
-class Piloto
-{
+class Piloto{
 private:
     Amplificador* amplificadorPiloto;
     Integrador* integradorPiloto;
@@ -13,7 +12,6 @@ public:
     Piloto(double ganho);
     virtual ~Piloto();
     Sinal* processar(Sinal* sinalIN);
-
 };
 
 #endif /* PILOTO_H */

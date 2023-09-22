@@ -7,10 +7,12 @@
 
 class ModuloRealimentado{
 private:
+    //atributos-circuitos
     Somador *somadorModuloRealimentado;
     Amplificador *inversorModuloRealimentado;
     Piloto *pilotoModuloRealimentado;
-
+    //método de controle interno
+    Sinal* getSinalEspecifico(Sinal* sinalIN, int i);
 public:
     ModuloRealimentado(double ganho);
     virtual ~ModuloRealimentado();

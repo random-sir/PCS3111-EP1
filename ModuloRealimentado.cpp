@@ -29,7 +29,7 @@ Sinal *ModuloRealimentado::processar(Sinal *sinalIN){
 
     //primeira iteracao
     sequenciaSaidaInvertida[0] = velocidadeInicial * (-1);
-    diferenca = getSinalEspecifico(sinalIN,0);
+    diferenca = getSinalEspecifico(sinalIN,0); // Um simples Sinal(sinalIN, 1) resolveria o problema
     saida = pilotoModuloRealimentado->processar(diferenca);
     delete diferenca;
 

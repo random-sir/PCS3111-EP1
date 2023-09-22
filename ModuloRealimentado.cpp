@@ -1,12 +1,5 @@
 #include "ModuloRealimentado.h"
 
-Sinal* ModuloRealimentado::getSinalEspecifico(Sinal* sinalIN, int i){ 
-    double sequencia[1];
-    sequencia[0] = sinalIN->getSequencia()[i];
-    Sinal* sinalOUT = new Sinal(sequencia,1);
-    return sinalOUT;
-}
-
 ModuloRealimentado::ModuloRealimentado(double ganho){
     somadorModuloRealimentado = new Somador();
     inversorModuloRealimentado = new Amplificador(-1);
@@ -29,7 +22,7 @@ Sinal *ModuloRealimentado::processar(Sinal *sinalIN){
 
     //primeira iteracao
     sequenciaSaidaInvertida[0] = velocidadeInicial * (-1);
-    diferenca = getSinalEspecifico(sinalIN,0); // Um simples Sinal(sinalIN, 1) resolveria o problema
+    diferenca = new Sinal(sinalIN->getSequencia(), 1);
     saida = pilotoModuloRealimentado->processar(diferenca);
     delete diferenca;
 

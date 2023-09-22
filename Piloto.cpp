@@ -2,7 +2,7 @@
 
 Piloto::Piloto(double ganho){
     amplificadorPiloto = new Amplificador(ganho);
-    integradorPiloto = new Integrador;
+    integradorPiloto = new Integrador();
 }
 
 Piloto::~Piloto(){

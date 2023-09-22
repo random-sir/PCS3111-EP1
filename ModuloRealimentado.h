@@ -5,18 +5,16 @@
 #include "Amplificador.h"
 #include "Piloto.h"
 
-class ModuloRealimentado
-{
+class ModuloRealimentado{
 private:
-    Somador* somadorModuloRealimentado;
-    Amplificador* inversorModuloRealimentado;
-    Piloto* pilotoModuloRealimentado;
+    Somador *somadorModuloRealimentado;
+    Amplificador *inversorModuloRealimentado;
+    Piloto *pilotoModuloRealimentado;
 
 public:
     ModuloRealimentado(double ganho);
     virtual ~ModuloRealimentado();
     Sinal* processar(Sinal* sinalIN);
 };
-
 
 #endif /* MODULOREALIMENTADO_H */

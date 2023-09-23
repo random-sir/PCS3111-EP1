@@ -13,7 +13,7 @@ using namespace std;
 Sinal* novoSinal();
 void novaOperacao(Sinal *sinalIN);
 
-{
+void menu(){
 /*
 *implementacao da interface
 */

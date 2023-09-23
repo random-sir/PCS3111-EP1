@@ -23,5 +23,6 @@ Sinal* novoSinal(){
   return nullptr;
 }
 void novaOperacao(Sinal *sinalIN){
+  //implementar uma solucao recursiva
   return void;
 }

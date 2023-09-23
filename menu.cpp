@@ -1,5 +1,6 @@
 include <iostream>
 include <cmath>
+include "Grafico.h"
 include "Sinal.h"
 include "Amplificador.h"
 include "Somador.h"

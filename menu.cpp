@@ -14,9 +14,10 @@ Sinal* novoSinal();
 void novaOperacao(Sinal *sinalIN);
 
 void menu(){
-/*
-*implementacao da interface
-*/
+  /*
+  *implementacao da interface
+  */
+  return void;
 }
 
 Sinal* novoSinal(){

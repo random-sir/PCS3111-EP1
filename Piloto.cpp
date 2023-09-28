@@ -11,9 +11,8 @@ Piloto::~Piloto(){
 }
 
 Sinal* Piloto::processar(Sinal *sinalIN){
-    //PRECISA CONFERIR PRA VER SE EU NÃO FIZ BOSTA
-    Sinal* sinalOUT = new Sinal(sinalIN->getSequencia(), sinalIN->getComprimento());
-    sinalOUT = amplificadorPiloto->processar(sinalOUT);
-    sinalOUT = integradorPiloto->processar(sinalOUT);
+    Sinal *sinalAmplificado = amplificadorPiloto->processar(sinalIN);
+    Sinal *sinalOUT = integradorPiloto->processar(sinalAmplificado);
+    delete sinalAmplificado;
     return sinalOUT;
 }

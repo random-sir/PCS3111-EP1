@@ -51,7 +51,7 @@ Sinal *novoSinal() {
             sequencia[n] = 5 + 3 * cos(n * (M_PI / 8));
         }
     }
-    if (opcao == 2) {
+    else if (opcao == 2) {
         double constante;
         cout << "Qual o valor dessa constante?\nC = ";
         cin >> constante;

@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "new": "cpp"
-    }
+        "new": "cpp",
+        "iostream": "cpp"
+    },
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "ignore",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Attach, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -4 }"
 }

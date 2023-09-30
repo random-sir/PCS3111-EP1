@@ -10,7 +10,7 @@
 #include <iostream>
 using namespace std;
 
-Sinal *novoSinal();
+Sinal* novoSinal();
 void novaOperacao(Sinal *sinalIN);
 
 void menu() {
@@ -39,77 +39,95 @@ void menu() {
     }
 }
 
-Sinal *novoSinal() {
+Sinal* novoSinal(){
     int opcao;
     const int tamanhoMaximo = 60;
     double sequencia[tamanhoMaximo];
-    cout << "Qual sinal voce gostaria de utilizar como entrada da sua simulacao?\n1) 5+3*cos(n*pi/8)\n2) constante\n3) rampa\nEscolha: ";
+    cout << "Qual sinal voce gostaria de utilizar como entrada da sua simulacao?" << endl
+         << "1) 5+3*cos(n*pi/8)"                                                  << endl
+         << "2) constante"                                                        << endl
+         << "3) rampa"                                                            << endl 
+         << "Escolha: ";
     cin >> opcao;
     cout << endl;
-    if (opcao == 1) {
-        for (int n = 0; n < tamanhoMaximo; n++) {
+    
+    if (opcao == 1){
+        for (int n = 0; n < tamanhoMaximo; n++) 
             sequencia[n] = 5 + 3 * cos(n * (M_PI / 8));
-        }
-    }
-    else if (opcao == 2) {
+    }else if (opcao == 2){
         double constante;
-        cout << "Qual o valor dessa constante?\nC = ";
+        cout << "Qual o valor dessa constante?" << endl 
+             << "C = ";
         cin >> constante;
         cout << endl;
-        for (int n = 0; n < tamanhoMaximo; n++) {
+        for (int n = 0; n < tamanhoMaximo; n++)
             sequencia[n] = constante;
-        }
-    } else {
+    }else{
         double inclinacao;
-        cout << "Qual a inclinacao dessa rampa?\na = ";
+        cout << "Qual a inclinacao dessa rampa?" << endl
+             << "a = ";
         cin >> inclinacao;
         cout << endl;
-        for (int n = 0; n < tamanhoMaximo; n++) {
+        for (int n = 0; n < tamanhoMaximo; n++)
             sequencia[n] = inclinacao * n;
-        }
     }
     Sinal *sinalOUT = new Sinal(sequencia, tamanhoMaximo);
     return sinalOUT;
 }
+
 void novaOperacao(Sinal *sinalIN) {
-    // implementar uma solucao recursiva
     int opcao;
-    Sinal *sinalOUT;
-    cout << "Qual operacao voce gostaria de fazer?\n1) Amplificar\n2) Somar\n3) Derivar\n4) Integrar\nEscolha: ";
+    Sinal *sinalOUT = nullptr;
+    cout << "Qual operacao voce gostaria de fazer?" << endl
+         << "1) Amplificar"                         << endl
+         << "2) Somar"                              << endl
+         << "3) Derivar"                            << endl
+         << "4) Integrar"                           << endl
+         << "Escolha: ";
     cin >> opcao;
     cout << endl;
-    if (opcao == 1) {
+
+    if (opcao == 1){
         double ganho;
-        cout << "Qual o ganho dessa amplificação?\ng = ";
+        cout << "Qual o ganho dessa amplificação?" << endl
+             << "g = ";
         cin >> ganho;
         cout << endl;
         Amplificador *amplificadorOperacao = new Amplificador(ganho);
         sinalOUT = amplificadorOperacao->processar(sinalIN);
+        delete sinalIN;
         delete amplificadorOperacao;
     }
-    if (opcao == 2) {
+    if (opcao == 2){
         Somador *somadorOperacao = new Somador();
-        cout << "Informe mais um sinal para ser somado.\n";
-        cout << endl;
+        cout << "Informe mais um sinal para ser somado." << endl;
         Sinal *sinalSomado = novoSinal();
-        sinalOUT = somadorOperacao->processar(sinalIN, sinalSomado);
+        sinalOUT = somadorOperacao->processar(sinalIN, sinalSomado); 
+        delete sinalIN;
+        delete somadorOperacao;
     }
-    if (opcao == 3) {
+    if (opcao == 3){
         Derivador *derivadorOperacao = new Derivador();
-        sinalOUT = derivadorOperacao->processar(sinalIN);
+        sinalOUT = derivadorOperacao->processar(sinalIN); 
+        delete sinalIN;
         delete derivadorOperacao;
     }
-    if (opcao == 4) {
+    if (opcao == 4){
         Integrador *integradorOperacao = new Integrador();
         sinalOUT = integradorOperacao->processar(sinalIN);
+        delete sinalIN;
         delete integradorOperacao;
     }
-    cout << "O que voce quer fazer agora?\n1) Realizar mais uma operacao no resultado\n2) Imprimir o resultado para terminar\nEscolha: ";
+    
+    cout << "O que voce quer fazer agora?"               << endl
+         << "1) Realizar mais uma operacao no resultado" << endl
+         << "2) Imprimir o resultado para terminar"      << endl
+         << "Escolha: ";
     cin >> opcao;
     cout << endl;
-    if (opcao == 1) {
-        novaOperacao(sinalOUT);
-    } else {
+    if (opcao == 1){
+        novaOperacao(sinalOUT); //Solucao recursiva
+    }else{
         Grafico *grafico = new Grafico("Resultado Final", sinalOUT->getSequencia(), sinalOUT->getComprimento());
         grafico->plot();
         delete grafico;

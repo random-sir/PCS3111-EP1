@@ -12,14 +12,6 @@ using namespace std;
 /*FUNÇÕES PARA TESTAR AS CLASSES*/
 /*TESTE DE MENU FAREMOS USANDO EP < ENTRADA.TXT > SAIDA.TXT*/
 
-void testaSinal();
-void testaSomador();
-void testaDerivador();
-void testaIntegrador();
-void testaAmplificador();
-void testaPiloto();
-void testaModuloRealimentado();
-
 void testaSinal(){
     return void;
 }

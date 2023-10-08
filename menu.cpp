@@ -93,7 +93,7 @@ void novaOperacao(Sinal *sinalIN) {
 
     if (opcao == 1){
         double ganho;
-        cout << "Qual o ganho dessa amplificação?" << endl
+        cout << "Qual o ganho dessa amplificacao?" << endl
              << "g = ";
         cin >> ganho;
         cout << endl;

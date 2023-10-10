@@ -100,12 +100,120 @@ void testaSomador(){
     delete sum;
 }
 
-void testaDerivador(){
-    return void;
+void testaDerivador(){ //modificar algum dos testes, esses aparentemente não são bons pro derivador
+    double seq1[60];
+    double seq2[1] = {7.89};//unitário
+    double seq3[60];
+    double seq4[60];
+    double seq5[60];
+    double seq6[30];
+    
+    srand(time(NULL));
+
+    for(int i = 0; i < 60; i++){
+        i <= 10 ? seq1[i] = i : seq1[i] = 10; //normal
+        seq3[i] = M_PI; //constante
+        seq4[i] = 0; //neutro
+        i <= 10 ? seq5[i] = -i : seq5[i] = -10; //negativo
+        if(i < 30){
+          seq6[i] =  rand() % 10;
+        }
+    }
+
+    Sinal *sinal1 = new Sinal(seq1,60);
+    Sinal *sinal2 = new Sinal(seq2,1);
+    Sinal *sinal3 = new Sinal(seq3,60);
+    Sinal *sinal4 = new Sinal(seq4,60);
+    Sinal *sinal5 = new Sinal(seq5,60);
+    Sinal *sinal6 = new Sinal(seq6,30);
+
+    Derivador *dfdx = new Derivador();
+
+    Sinal *s1 = dfdx->processar(sinal1);
+    s1->imprimir("1");
+    Sinal *s2 = dfdx->processar(sinal2);
+    s2->imprimir("2");
+    Sinal *s3 = dfdx->processar(sinal3);
+    s3->imprimir("3");
+    Sinal *s4 = dfdx->processar(sinal4); 
+    s4->imprimir("4");
+    Sinal *s5 = dfdx->processar(sinal5); 
+    s5->imprimir("5");
+    Sinal *s6 = dfdx->processar(sinal6); 
+    s6->imprimir("6");
+
+    delete s1;
+    delete s2;
+    delete s3;
+    delete s4;
+    delete s5;
+    delete s6;
+
+    delete sinal1;
+    delete sinal2;
+    delete sinal3;
+    delete sinal4;
+    delete sinal5;
+    delete sinal6;
+    delete dfdx;
 }
 
-void testaIntegrador(){
-    return void;
+void testaIntegrador(){//modificar algum dos testes, esses aparentemente não são bons pro integrador
+    double seq1[60];
+    double seq2[1] = {7.89};//unitário
+    double seq3[60];
+    double seq4[60];
+    double seq5[60];
+    double seq6[30];
+    
+    srand(time(NULL));
+
+    for(int i = 0; i < 60; i++){
+        i <= 10 ? seq1[i] = i : seq1[i] = 10; //normal
+        seq3[i] = M_PI; //constante
+        seq4[i] = 0; //neutro
+        i <= 10 ? seq5[i] = -i : seq5[i] = -10; //negativo
+        if(i < 30){
+          seq6[i] =  rand() % 10;
+        }
+    }
+
+    Sinal *sinal1 = new Sinal(seq1,60);
+    Sinal *sinal2 = new Sinal(seq2,1);
+    Sinal *sinal3 = new Sinal(seq3,60);
+    Sinal *sinal4 = new Sinal(seq4,60);
+    Sinal *sinal5 = new Sinal(seq5,60);
+    Sinal *sinal6 = new Sinal(seq6,30);
+
+    Integrador *intdx = new Integrador();
+
+    Sinal *s1 = intdx->processar(sinal1);
+    s1->imprimir("1");
+    Sinal *s2 = intdx->processar(sinal2);
+    s2->imprimir("2");
+    Sinal *s3 = intdx->processar(sinal3);
+    s3->imprimir("3");
+    Sinal *s4 = intdx->processar(sinal4); 
+    s4->imprimir("4");
+    Sinal *s5 = intdx->processar(sinal5); 
+    s5->imprimir("5");
+    Sinal *s6 = intdx->processar(sinal6); 
+    s6->imprimir("6");
+
+    delete s1;
+    delete s2;
+    delete s3;
+    delete s4;
+    delete s5;
+    delete s6;
+
+    delete sinal1;
+    delete sinal2;
+    delete sinal3;
+    delete sinal4;
+    delete sinal5;
+    delete sinal6;
+    delete intdx;
 }
 
 void testaAmplificador(){

@@ -109,7 +109,149 @@ void testaIntegrador(){
 }
 
 void testaAmplificador(){
-    return void;
+    double seq1[60];
+    double seq2[1] = {7.89};//unitário
+    double seq3[60];
+    double seq4[60];
+    double seq5[60];
+    double seq6[30];
+    
+    srand(time(NULL));
+
+    for(int i = 0; i < 60; i++){
+        i <= 10 ? seq1[i] = i : seq1[i] = 10; //normal
+        seq3[i] = M_PI; //constante
+        seq4[i] = 0; //neutro
+        i <= 10 ? seq5[i] = -i : seq5[i] = -10; //negativo
+        if(i < 30){
+          seq6[i] =  rand() % 10;
+        }
+    }
+
+    Sinal *sinal1 = new Sinal(seq1,60);
+    Sinal *sinal2 = new Sinal(seq2,1);
+    Sinal *sinal3 = new Sinal(seq3,60);
+    Sinal *sinal4 = new Sinal(seq4,60);
+    Sinal *sinal5 = new Sinal(seq5,60);
+    Sinal *sinal6 = new Sinal(seq6,30);
+
+
+    {Amplificador *ampl1 = new Amplificador(0); //amplificagem com 0
+    Sinal *sinal11 = ampl1->processar(sinal1);//amplificagem com 0 no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = ampl1->processar(sinal2);//amplificagem com 0 no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = ampl1->processar(sinal3);//amplificagem com 0 no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = ampl1->processar(sinal4);//amplificagem com 0 no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = ampl1->processar(sinal5);//amplificagem com 0 no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = ampl1->processar(sinal6);//amplificagem com 0 no sinal6
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl1;}
+
+    {Amplificador *ampl2 = new Amplificador(1); //amplificagem com 1
+    Sinal *sinal11 = ampl2->processar(sinal1);//amplificagem com 1 no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = ampl2->processar(sinal2);//amplificagem com 1 no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = ampl2->processar(sinal3);//amplificagem com 1 no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = ampl2->processar(sinal4);//amplificagem com 1 no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = ampl2->processar(sinal5);//amplificagem com 1 no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = ampl2->processar(sinal6);//amplificagem com 1 no sinal6
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl2;}
+
+    {Amplificador *ampl3 = new Amplificador(-1); //amplificagem com negativo -1 
+    Sinal *sinal11 = ampl3->processar(sinal1);//amplificagem com -1 no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = ampl3->processar(sinal2);//amplificagem com -1 no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = ampl3->processar(sinal3);//amplificagem com -1 no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = ampl3->processar(sinal4);//amplificagem com -1 no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = ampl3->processar(sinal5);//amplificagem com -1 no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = ampl3->processar(sinal6);//amplificagem com -1 no sinal5
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl3;}
+
+    {Amplificador *ampl4 = new Amplificador(2.3); //amplificagem com positivo qualquer
+    Sinal *sinal11 = ampl4->processar(sinal1);//amplificagem com positivo qualquer no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = ampl4->processar(sinal2);//amplificagem com positivo qualquer no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = ampl4->processar(sinal3);//amplificagem com positivo qualquer no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = ampl4->processar(sinal4);//amplificagem com positivo qualquer no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = ampl4->processar(sinal5);//amplificagem com positivo qualquer no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = ampl4->processar(sinal6);//amplificagem com positivo qualquer no sinal6
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl4;}
+
+    {Amplificador *ampl5 = new Amplificador(-3.4); //amplificagem com negativo qualquer 
+    Sinal *sinal11 = ampl5->processar(sinal1);//amplificagem com negativo qualquer no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = ampl5->processar(sinal2);//amplificagem com negativo qualquer no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = ampl5->processar(sinal3);//amplificagem com negativo qualquer no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = ampl5->processar(sinal4);//amplificagem com negativo qualquer no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = ampl5->processar(sinal5);//amplificagem com negativo qualquer no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = ampl5->processar(sinal6);//amplificagem com negativo qualquer no sinal5
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl5;}
+
+    delete sinal1;
+    delete sinal2;
+    delete sinal3;
+    delete sinal4;
+    delete sinal5;
+    delete sinal6;
 }
 
 void testaPiloto(){

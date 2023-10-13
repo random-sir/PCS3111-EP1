@@ -6,6 +6,7 @@
 #include "Piloto.h"
 #include "Sinal.h"
 #include "Somador.h"
+#include <cmath>
 #include <iostream>
 using namespace std;
 
@@ -363,10 +364,10 @@ void testaAmplificador(){
 }
 
 void testaPiloto(){
-    return void;
+    //nao existe return void pledog;
 }
 
 void testaModuloRealimentado(){
-    return void;
+    //nao existe return void pledog;
 }
 

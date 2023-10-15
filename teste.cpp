@@ -191,9 +191,9 @@ void testaIntegrador(){
     Sinal *s4 = intdx->processar(sinal4); 
     s4->imprimir("SINAL QUADRÁTICO");
     Sinal *s5 = intdx->processar(sinal5); 
-    s5->imprimir("SINAL SENOIDAL");
+    s5->imprimir("SINAL ANTI-SENOIDAL");
     Sinal *s6 = intdx->processar(sinal6); 
-    s6->imprimir("SINAL ANTI-COSSENOIDAL");
+    s6->imprimir("SINAL COSSENOIDAL");
     
 
     delete s1;

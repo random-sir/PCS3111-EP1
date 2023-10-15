@@ -101,23 +101,20 @@ void testaSomador(){
     delete sum;
 }
 
-void testaDerivador(){ //modificar algum dos testes, esses aparentemente não são bons pro derivador
+void testaDerivador(){
     double seq1[60];
     double seq2[1] = {7.89};//unitário
     double seq3[60];
     double seq4[60];
     double seq5[60];
     double seq6[30];
-    
-    srand(time(NULL));
 
     for(int i = 0; i < 60; i++){
-        i <= 10 ? seq1[i] = i : seq1[i] = 10; //normal
+        i <= 10 ? seq1[i] = i : seq1[i] = 10; //linear
         seq3[i] = M_PI; //constante
-        seq4[i] = 0; //neutro
-        i <= 10 ? seq5[i] = -i : seq5[i] = -10; //negativo
-        if(i < 30){
-          seq6[i] =  rand() % 10;
+        seq4[i] = i*i; //quadrático
+        seq5[i] = 2*sin(i) + 3; //senoidal
+        seq6[i] = -2*cos(i) + 3; //cossenoidal, negativo porque derivada de cosseno é negativa
         }
     }
 
@@ -126,22 +123,22 @@ void testaDerivador(){ //modificar algum dos testes, esses aparentemente não s�
     Sinal *sinal3 = new Sinal(seq3,60);
     Sinal *sinal4 = new Sinal(seq4,60);
     Sinal *sinal5 = new Sinal(seq5,60);
-    Sinal *sinal6 = new Sinal(seq6,30);
+    Sinal *sinal6 = new Sinal(seq6,60);
 
     Derivador *dfdx = new Derivador();
 
     Sinal *s1 = dfdx->processar(sinal1);
-    s1->imprimir("1");
+    s1->imprimir("SINAL LINEAR");
     Sinal *s2 = dfdx->processar(sinal2);
-    s2->imprimir("2");
+    s2->imprimir("SINAL UNITÁRIO"); //No cálculo não existe derivada de pontos isolados, eles devem ser pontos de acumulação. Mas vejamos o que acontece aqui.
     Sinal *s3 = dfdx->processar(sinal3);
-    s3->imprimir("3");
+    s3->imprimir("SINAL CONSTANTE");
     Sinal *s4 = dfdx->processar(sinal4); 
-    s4->imprimir("4");
+    s4->imprimir("SINAL QUADRÁTICO");
     Sinal *s5 = dfdx->processar(sinal5); 
-    s5->imprimir("5");
+    s5->imprimir("SINAL SENOIDAL");
     Sinal *s6 = dfdx->processar(sinal6); 
-    s6->imprimir("6");
+    s6->imprimir("SINAL ANTI-COSSENOIDAL");
 
     delete s1;
     delete s2;
@@ -159,23 +156,20 @@ void testaDerivador(){ //modificar algum dos testes, esses aparentemente não s�
     delete dfdx;
 }
 
-void testaIntegrador(){//modificar algum dos testes, esses aparentemente não são bons pro integrador
+void testaIntegrador(){
     double seq1[60];
     double seq2[1] = {7.89};//unitário
     double seq3[60];
     double seq4[60];
     double seq5[60];
-    double seq6[30];
+    double seq6[60];
     
-    srand(time(NULL));
-
     for(int i = 0; i < 60; i++){
-        i <= 10 ? seq1[i] = i : seq1[i] = 10; //normal
+        i <= 10 ? seq1[i] = i : seq1[i] = 10; //linear
         seq3[i] = M_PI; //constante
-        seq4[i] = 0; //neutro
-        i <= 10 ? seq5[i] = -i : seq5[i] = -10; //negativo
-        if(i < 30){
-          seq6[i] =  rand() % 10;
+        seq4[i] = i*i; //quadrático
+        seq5[i] = -2*sin(i) + 3; //anti-senoidal, negativo porque queremos que a primitiva seja um cosseno positivo
+        seq6[i] = 2*cos(i) + 3; //cossenoidal
         }
     }
 
@@ -184,22 +178,23 @@ void testaIntegrador(){//modificar algum dos testes, esses aparentemente não s�
     Sinal *sinal3 = new Sinal(seq3,60);
     Sinal *sinal4 = new Sinal(seq4,60);
     Sinal *sinal5 = new Sinal(seq5,60);
-    Sinal *sinal6 = new Sinal(seq6,30);
+    Sinal *sinal6 = new Sinal(seq6,60);
 
     Integrador *intdx = new Integrador();
 
     Sinal *s1 = intdx->processar(sinal1);
-    s1->imprimir("1");
+    s1->imprimir("SINAL LINEAR");
     Sinal *s2 = intdx->processar(sinal2);
-    s2->imprimir("2");
+    s2->imprimir("SINAL UNITÁRIO"); //No cálculo, integral de um ponto é zero. Vejamos o que acontece aqui
     Sinal *s3 = intdx->processar(sinal3);
-    s3->imprimir("3");
+    s3->imprimir("SINAL CONSTANTE");
     Sinal *s4 = intdx->processar(sinal4); 
-    s4->imprimir("4");
+    s4->imprimir("SINAL QUADRÁTICO");
     Sinal *s5 = intdx->processar(sinal5); 
-    s5->imprimir("5");
+    s5->imprimir("SINAL SENOIDAL");
     Sinal *s6 = intdx->processar(sinal6); 
-    s6->imprimir("6");
+    s6->imprimir("SINAL ANTI-COSSENOIDAL");
+    
 
     delete s1;
     delete s2;

@@ -498,6 +498,143 @@ void testaPiloto(){
 }
 
 void testaModuloRealimentado(){
-    //nao existe return void pledog;
+    double seq1[60];
+    double seq2[1] = {7.89};//unitário
+    double seq3[60];
+    double seq4[60];
+    double seq5[60];
+    double seq6[60];
+    
+    for(int i = 0; i < 60; i++){
+        i <= 10 ? seq1[i] = i : seq1[i] = 10; //linear
+        seq3[i] = M_PI; //constante
+        seq4[i] = i*i; //quadrático
+        seq5[i] = -2*sin(i) + 3; //anti-senoidal, negativo porque queremos que a primitiva seja um cosseno positivo
+        seq6[i] = 2*cos(i) + 3; //cossenoidal
+    }
+
+    Sinal *sinal1 = new Sinal(seq1,60);
+    Sinal *sinal2 = new Sinal(seq2,1);
+    Sinal *sinal3 = new Sinal(seq3,60);
+    Sinal *sinal4 = new Sinal(seq4,60);
+    Sinal *sinal5 = new Sinal(seq5,60);
+    Sinal *sinal6 = new Sinal(seq6,60);
+
+    {ModuloRealimentado *pl1 = new ModuloRealimentado(0); //amplificagem com 0
+    Sinal *sinal11 = pl1->processar(sinal1);//amplificagem com 0 no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = pl1->processar(sinal2);//amplificagem com 0 no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = pl1->processar(sinal3);//amplificagem com 0 no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = pl1->processar(sinal4);//amplificagem com 0 no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = pl1->processar(sinal5);//amplificagem com 0 no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = pl1->processar(sinal6);//amplificagem com 0 no sinal6
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl1;}
+
+    {ModuloRealimentado *pl2 = new ModuloRealimentado(1); //amplificagem com 1
+    Sinal *sinal11 = pl2->processar(sinal1);//amplificagem com 1 no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = pl2->processar(sinal2);//amplificagem com 1 no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = pl2->processar(sinal3);//amplificagem com 1 no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = pl2->processar(sinal4);//amplificagem com 1 no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = pl2->processar(sinal5);//amplificagem com 1 no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = pl2->processar(sinal6);//amplificagem com 1 no sinal6
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl2;}
+
+    {ModuloRealimentado *pl3 = new ModuloRealimentado(-1); //amplificagem com negativo -1 
+    Sinal *sinal11 = pl3->processar(sinal1);//amplificagem com -1 no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = pl3->processar(sinal2);//amplificagem com -1 no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = pl3->processar(sinal3);//amplificagem com -1 no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = pl3->processar(sinal4);//amplificagem com -1 no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = pl3->processar(sinal5);//amplificagem com -1 no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = pl3->processar(sinal6);//amplificagem com -1 no sinal5
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl3;}
+
+    {ModuloRealimentado *ampl4 = new ModuloRealimentado(2.3); //amplificagem com positivo qualquer
+    Sinal *sinal11 = pl4->processar(sinal1);//amplificagem com positivo qualquer no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = pl4->processar(sinal2);//amplificagem com positivo qualquer no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = pl4->processar(sinal3);//amplificagem com positivo qualquer no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = pl4->processar(sinal4);//amplificagem com positivo qualquer no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = pl4->processar(sinal5);//amplificagem com positivo qualquer no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = pl4->processar(sinal6);//amplificagem com positivo qualquer no sinal6
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl4;}
+
+    {ModuloRealimentado *ampl5 = new ModuloRealimentado(-3.4); //amplificagem com negativo qualquer 
+    Sinal *sinal11 = pl5->processar(sinal1);//amplificagem com negativo qualquer no sinal1
+    sinal11->imprimir("###############################");
+    Sinal *sinal22 = pl5->processar(sinal2);//amplificagem com negativo qualquer no sinal2
+    sinal22->imprimir("###############################");
+    Sinal *sinal33 = pl5->processar(sinal3);//amplificagem com negativo qualquer no sinal3
+    sinal33->imprimir("###############################");
+    Sinal *sinal44 = pl5->processar(sinal4);//amplificagem com negativo qualquer no sinal4
+    sinal44->imprimir("###############################");
+    Sinal *sinal55 = pl5->processar(sinal5);//amplificagem com negativo qualquer no sinal5
+    sinal55->imprimir("###############################");
+    Sinal *sinal66 = pl5->processar(sinal6);//amplificagem com negativo qualquer no sinal5
+    sinal66->imprimir("###############################");
+
+    delete sinal11;
+    delete sinal22;
+    delete sinal33;
+    delete sinal44;
+    delete sinal55;
+    delete sinal66;
+    delete ampl5;}
+
+    delete sinal1;
+    delete sinal2;
+    delete sinal3;
+    delete sinal4;
+    delete sinal5;
+    delete sinal6;
 }
 

@@ -399,7 +399,7 @@ void testaPiloto(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl1;}
+    delete pl1;}
 
     {Piloto *pl2 = new Piloto(1); //amplificagem com 1
     Sinal *sinal11 = pl2->processar(sinal1);//amplificagem com 1 no sinal1
@@ -421,7 +421,7 @@ void testaPiloto(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl2;}
+    delete pl2;}
 
     {Piloto *pl3 = new Piloto(-1); //amplificagem com negativo -1 
     Sinal *sinal11 = pl3->processar(sinal1);//amplificagem com -1 no sinal1
@@ -443,7 +443,7 @@ void testaPiloto(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl3;}
+    delete pl3;}
 
     {Piloto *ampl4 = new Piloto(2.3); //amplificagem com positivo qualquer
     Sinal *sinal11 = pl4->processar(sinal1);//amplificagem com positivo qualquer no sinal1
@@ -465,7 +465,7 @@ void testaPiloto(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl4;}
+    delete pl4;}
 
     {Piloto *ampl5 = new Piloto(-3.4); //amplificagem com negativo qualquer 
     Sinal *sinal11 = pl5->processar(sinal1);//amplificagem com negativo qualquer no sinal1
@@ -487,7 +487,7 @@ void testaPiloto(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl5;}
+    delete pl5;}
 
     delete sinal1;
     delete sinal2;
@@ -540,7 +540,7 @@ void testaModuloRealimentado(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl1;}
+    delete pl1;}
 
     {ModuloRealimentado *pl2 = new ModuloRealimentado(1); //amplificagem com 1
     Sinal *sinal11 = pl2->processar(sinal1);//amplificagem com 1 no sinal1
@@ -562,7 +562,7 @@ void testaModuloRealimentado(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl2;}
+    delete pl2;}
 
     {ModuloRealimentado *pl3 = new ModuloRealimentado(-1); //amplificagem com negativo -1 
     Sinal *sinal11 = pl3->processar(sinal1);//amplificagem com -1 no sinal1
@@ -584,7 +584,7 @@ void testaModuloRealimentado(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl3;}
+    delete pl3;}
 
     {ModuloRealimentado *ampl4 = new ModuloRealimentado(2.3); //amplificagem com positivo qualquer
     Sinal *sinal11 = pl4->processar(sinal1);//amplificagem com positivo qualquer no sinal1
@@ -606,7 +606,7 @@ void testaModuloRealimentado(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl4;}
+    delete pl4;}
 
     {ModuloRealimentado *ampl5 = new ModuloRealimentado(-3.4); //amplificagem com negativo qualquer 
     Sinal *sinal11 = pl5->processar(sinal1);//amplificagem com negativo qualquer no sinal1
@@ -628,7 +628,7 @@ void testaModuloRealimentado(){
     delete sinal44;
     delete sinal55;
     delete sinal66;
-    delete ampl5;}
+    delete pl5;}
 
     delete sinal1;
     delete sinal2;
